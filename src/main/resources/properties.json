@@ -1,9 +1,9 @@
 {
   "browsername": "chrome",
   "browseroptions": [
-    "--headless=new",
     "incognito",
-    "--lang=en-en"
+    "--lang=en-en",
+    "--remote-allow-origins=*"
   ],
   "mainpage": "https://www.amazon.com"
 }

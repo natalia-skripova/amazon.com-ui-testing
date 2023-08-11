@@ -1,6 +1,7 @@
 package webDriver;
 
 import org.openqa.selenium.WebDriver;
+import utility.LogUtils;
 
 public class WebDriverUtils {
     private static WebDriverUtils instance = null;
@@ -22,17 +23,18 @@ public class WebDriverUtils {
         getInstance();
         if (driver == null) {
             driver = BrowserFactory.getDriverFromFactory();
+            LogUtils.getLogger().info("WebDriver has been obtained");
         }
         return driver;
     }
 
     public static void quitDriver() {
-        getInstance();
         getDriver().quit();
         instance = null;
         if (driver != null) {
             getDriver().quit();
             driver = null;
+            LogUtils.getLogger().info("WebDriver has been quit");
         }
     }
 

@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import utility.LogUtils;
 import utility.ParseUtils;
 
 import java.util.List;
@@ -23,18 +24,21 @@ public class BrowserFactory {
 
         switch (browser) {
             case CHROME: {
-                WebDriverManager.chromedriver().setup();
+                WebDriverManager.chromedriver().browserVersion("115.0.5790.171").setup();
                 ChromeOptions options = new ChromeOptions();
                 getOptions().forEach(options::addArguments);
+                LogUtils.getLogger().info("Browser Chrome was chosen");
                 return new ChromeDriver(options);
             }
             case FIREFOX: {
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions options = new FirefoxOptions();
                 getOptions().forEach(options::addArguments);
-                return new FirefoxDriver();
+                LogUtils.getLogger().info("Browser Firefox was chosen");
+                return new FirefoxDriver(options);
             }
             default:
+                LogUtils.getLogger().debug("Browser name is wrong - " + browserName);
                 throw new RuntimeException("Browser name is wrong - " + browserName);
         }
     }
