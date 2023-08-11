@@ -14,19 +14,19 @@ import java.util.List;
 public class ParseUtils {
 
     public static String getValueFromJson(String key, String jsonPath) {
-        LogUtils.getLogger().info("Parsing " + jsonPath + " by key: " + key);
+        LogUtils.getLogger().debug("Parsing " + jsonPath + " by key: " + key);
         ObjectMapper mapper = new ObjectMapper();
         try {
             JsonNode root = mapper.readTree(new File(jsonPath));
             return root.path(key).asText();
         } catch (IOException e) {
-            LogUtils.getLogger().debug("Caught IOException");
+            LogUtils.getLogger().info("Caught IOException");
             throw new RuntimeException(e);
         }
     }
 
     public static List<String> getConfigDataFromJson(String key, String jsonPath) {
-        LogUtils.getLogger().info("Parsing " + jsonPath + " by key: " + key);
+        LogUtils.getLogger().debug("Parsing " + jsonPath + " by key: " + key);
         try {
             byte[] jsonData = Files.readAllBytes(Paths.get(jsonPath));
             ObjectMapper mapper = new ObjectMapper();
@@ -40,7 +40,7 @@ public class ParseUtils {
             }
             return list;
         } catch (IOException e) {
-            LogUtils.getLogger().debug("Caught IOException");
+            LogUtils.getLogger().info("Caught IOException");
             throw new RuntimeException(e);
         }
     }
