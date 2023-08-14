@@ -12,9 +12,8 @@ import java.util.stream.Collectors;
 
 public class MainPage extends BaseForm {
 
-    private final static Wrapper mainForm = new Wrapper(By.id("gw-card-layout"), "Main Form");
+    private final static Wrapper mainFormWrapper = new Wrapper(By.id("navbar-main"), "Main Form");
 
-    private final Wrapper fullMainWrapper = new Wrapper(By.id("main-content"), "Full Main Wrapper");
     private final Button excitingDealsPreviousSlideArrow = new Button(By.xpath("//*[@id = 'desktop-1']//*[@aria-label = 'Carousel previous slide']"),
             "Exciting Deals Previous Slide Arrow");
     private final Button excitingDealsNextSlideArrow = new Button(By.xpath("//*[@id = 'desktop-1']//*[@aria-label = 'Carousel next slide']"),
@@ -25,11 +24,11 @@ public class MainPage extends BaseForm {
     private final String goodDealBlockPriceTextXPath = "//*[@id = 'desktop-3']//*[@data-a-size = 'm']//*[contains(@class, 'offscreen')]";
 
     public MainPage() {
-        super(mainForm);
+        super(mainFormWrapper);
     }
 
     public void getFullMainPageOpened() {
-        while (!fullMainWrapper.getElement().isDisplayed()) {
+        while (!mainFormWrapper.getElement().isDisplayed()) {
             BrowserUtils.refreshWebPage();
         }
     }

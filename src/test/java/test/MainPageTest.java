@@ -13,7 +13,7 @@ import static constant.TestDataConstants.GOOD_DEAL_CURRENCY;
 import static constant.TestDataConstants.GOOD_DEAL_PRICE;
 import static constant.TestDataPathConstants.MAIN_PAGE_TEST_DATA;
 
-public class MainPageTest extends BaseTest{
+public class MainPageTest extends BaseTest {
 
     @Test
     public void goodDealBlockPricesTest() {
@@ -40,7 +40,5 @@ public class MainPageTest extends BaseTest{
         Assert.assertTrue(mainPage.isExcitingDealsPreviousSlideArrowDisabled(), "The Scroll Bar is not in the Left position");
         mainPage.moveExcitingDealScrollBarToTheRight();
         Assert.assertTrue(mainPage.isExcitingDealsNextSlideArrowDisabled(), "The Scroll Bar is not in the Right position");
-
     }
-
 }

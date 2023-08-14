@@ -3,6 +3,7 @@ package pageobject;
 import element.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import utility.WaitUtils;
 import webDriver.WebDriverUtils;
@@ -16,15 +17,16 @@ public class SearchPage extends BaseForm {
             "Search Page Header");
 
     private final Label searchQueryText = new Label(By
-            .xpath("//*[@data-component-type='s-result-info-bar']//*[contains(@class, 'a-text-bold')]"),
-            "Search Query Text");
+            .xpath("//*[@data-component-type='s-result-info-bar']//*[contains(@class, 'a-text-bold')]"), "Search Query Text");
     private final Button expandBrandFilterButton = new Button(By.xpath("//*[@id='brandsRefinements']//a[contains(@class, 'expander')]"),
             "Expand Brand Filter Button");
+    private final Label itemRate = new Label(By.xpath("//*[@class = 'a-declarative']"), "Item Star Rate");
+    private final Wrapper ratePopoverWindow = new Wrapper(By.xpath("//*[contains(@class, 'a-popover')][@role='dialog']"), "Star Popover Window");
+    private final SelectElement searchSortSelect = new SelectElement(By.id("s-result-sort-select"), "Search Sort Select");
 
     private final String searchItemTitleXpath = "//*[@class = 'sg-row']//*[contains(@class, 'title')]//a";
     private final String searchItemPriceXpath = "//*[@class='a-price']//*[@class='a-price-whole']";
     private final String brandCheckBoxXpathBase = "//*[@id = 'brandsRefinements']";
-    private final String sortSelectXpath = "//*[@id= 's-result-sort-select']";
 
     public SearchPage() {
         super(searchPageWrapper);
@@ -62,8 +64,19 @@ public class SearchPage extends BaseForm {
     }
 
     public void sortByPriceFromLowToHigh() {
-        WebElement selectElement = WebDriverUtils.getDriver().findElement(By.xpath(sortSelectXpath));
-        Select select = new Select(selectElement);
+        Select select = new Select(searchSortSelect.getElement());
         select.selectByValue("price-asc-rank");
+    }
+
+    public void hoverOverStarPopupWindow() {
+        new Actions(WebDriverUtils.getDriver())
+                .moveToElement(itemRate.getElement())
+                .click()
+                .perform();
+    }
+
+    public boolean isRatePopupWindowOpened() {
+        ratePopoverWindow.getElement().isDisplayed();
+        return !ratePopoverWindow.getElement().getAttribute("style").contains("auto");
     }
 }
