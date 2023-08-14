@@ -2,7 +2,6 @@ package pageobject;
 
 import element.BaseElement;
 import utility.LogUtils;
-import webDriver.WebDriverUtils;
 
 public class BaseForm {
 
@@ -14,6 +13,6 @@ public class BaseForm {
 
     public boolean isPageOpened() {
         LogUtils.getLogger().debug("Opening " + uniqueFormElement.getElementName());
-        return WebDriverUtils.getDriver().findElement(uniqueFormElement.getElementLocator()).isDisplayed();
+        return uniqueFormElement.getElement().isDisplayed();
     }
 }

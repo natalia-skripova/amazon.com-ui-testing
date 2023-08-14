@@ -4,15 +4,17 @@ import element.Button;
 import element.Wrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
+import utility.BrowserUtils;
 import webDriver.WebDriverUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MainPage extends BaseForm{
+public class MainPage extends BaseForm {
 
-    private final static Wrapper mainForm = new Wrapper(By.xpath("//*[@id='gw-card-layout']"), "Main Form");
+    private final static Wrapper mainForm = new Wrapper(By.id("gw-card-layout"), "Main Form");
 
+    private final Wrapper fullMainWrapper = new Wrapper(By.id("main-content"), "Full Main Wrapper");
     private final Button excitingDealsPreviousSlideArrow = new Button(By.xpath("//*[@id = 'desktop-1']//*[@aria-label = 'Carousel previous slide']"),
             "Exciting Deals Previous Slide Arrow");
     private final Button excitingDealsNextSlideArrow = new Button(By.xpath("//*[@id = 'desktop-1']//*[@aria-label = 'Carousel next slide']"),
@@ -24,6 +26,12 @@ public class MainPage extends BaseForm{
 
     public MainPage() {
         super(mainForm);
+    }
+
+    public void getFullMainPageOpened() {
+        while (!fullMainWrapper.getElement().isDisplayed()) {
+            BrowserUtils.refreshWebPage();
+        }
     }
 
     public List<String> getGoodDealBlockPriceText() {
@@ -52,5 +60,4 @@ public class MainPage extends BaseForm{
                 .getAttribute("class")
                 .contains("feed-control-disabled");
     }
-
 }

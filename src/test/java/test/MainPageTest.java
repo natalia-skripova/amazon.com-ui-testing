@@ -9,9 +9,9 @@ import utility.ParseUtils;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static constant.FilePathConstants.MAIN_PAGE_TEST_DATA;
 import static constant.TestDataConstants.GOOD_DEAL_CURRENCY;
 import static constant.TestDataConstants.GOOD_DEAL_PRICE;
+import static constant.TestDataPathConstants.MAIN_PAGE_TEST_DATA;
 
 public class MainPageTest extends BaseTest{
 

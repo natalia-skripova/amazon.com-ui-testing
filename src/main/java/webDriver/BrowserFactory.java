@@ -7,10 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import java.util.List;
 import utility.LogUtils;
 import utility.ParseUtils;
-
-import java.util.List;
 
 import static constant.JsonPropertiesConstants.BROWSER_NAME;
 import static constant.JsonPropertiesConstants.BROWSER_OPTIONS;
