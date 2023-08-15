@@ -1,0 +1,12 @@
+{
+  "browsername": "chrome",
+  "browseroptions": [
+    "--headless=new",
+    "start-maximized",
+    "incognito",
+    "--lang=en-en",
+    "--remote-allow-origins=*"
+  ],
+  "timeout": 30,
+  "mainpage": "https://www.amazon.com"
+}
