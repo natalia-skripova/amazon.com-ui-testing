@@ -9,7 +9,8 @@ public class AccountPopupForm extends BaseForm {
 
     private static final Wrapper accountPopupWrapper = new Wrapper(By.id("nav-flyout-accountList"), "Account Popup Wrapper");
 
-    private final Button signUpButton = new Button(By.className("nav-a"), "SignUp Button");
+    private final Button signUpButton = new Button(By.xpath("//*[@id='nav-al-signin']//*[@class='nav-a']"),
+            "SignUp Button");
 
     public AccountPopupForm() {
         super(accountPopupWrapper);
