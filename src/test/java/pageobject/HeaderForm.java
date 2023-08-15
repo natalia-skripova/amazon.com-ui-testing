@@ -14,7 +14,8 @@ public class HeaderForm extends BaseForm {
 
     private final Input headerSearchInput = new Input(By.id("twotabsearchtextbox"), "Header Search Field");
     private final Button headerSearchSubmitButton = new Button(By.id("nav-search-submit-button"), "Header Search Submit Button");
-    private final Wrapper searchPopupWindow = new Wrapper(By.xpath("//*[@class='autocomplete-results-container']"), "Search Popup Window");
+    private final Wrapper searchPopupWindow = new Wrapper(By.className("autocomplete-results-container"), "Search Popup Window");
+    private final Button accountPopupMenuButton = new Button(By.id("nav-link-accountList"), "Account Popup Menu Button");
 
     public HeaderForm() {
         super(headerFormWrapper);
@@ -38,5 +39,11 @@ public class HeaderForm extends BaseForm {
 
     public void clickHeaderSearchSubmitButton() {
         headerSearchSubmitButton.clickButton();
+    }
+
+    public void hoverOverAccountPopupMenuButton() {
+        new Actions(WebDriverUtils.getDriver())
+                .moveToElement(accountPopupMenuButton.getElement())
+                .perform();
     }
 }
