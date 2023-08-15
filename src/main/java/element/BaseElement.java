@@ -6,6 +6,8 @@ import utility.LogUtils;
 import utility.WaitUtils;
 import webDriver.WebDriverUtils;
 
+import java.util.List;
+
 public class BaseElement {
 
     private final By uniqueLocator;
@@ -28,6 +30,12 @@ public class BaseElement {
         LogUtils.getLogger().debug("Getting " + elementName + " element");
         WaitUtils.waitForElementDisplayed(uniqueLocator);
         return WebDriverUtils.getDriver().findElement(uniqueLocator);
+    }
+
+    public List<WebElement> getElements() {
+        LogUtils.getLogger().debug("Getting " + elementName + " element");
+        WaitUtils.waitForElementDisplayed(uniqueLocator);
+        return WebDriverUtils.getDriver().findElements(uniqueLocator);
     }
 
 }

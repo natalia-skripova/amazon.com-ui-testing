@@ -1,6 +1,7 @@
 package pageobject;
 
 import element.Button;
+import element.Label;
 import element.Wrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -18,10 +19,10 @@ public class MainPage extends BaseForm {
             "Exciting Deals Previous Slide Arrow");
     private final Button excitingDealsNextSlideArrow = new Button(By.xpath("//*[@id = 'desktop-1']//*[@aria-label = 'Carousel next slide']"),
             "Exciting Deals Next Slide Arrow");
-    private final Button excitingDealsScrollbarTrack = new Button(By.xpath("//*[@id = 'desktop-1']//*[contains(@class, 'feed-scrollbar-thumb')]"),
+    private final Button excitingDealsScrollbarButton = new Button(By.xpath("//*[@id = 'desktop-1']//*[contains(@class, 'feed-scrollbar-thumb')]"),
             "Exciting Deals Scrollbar Track");
-
-    private final String goodDealBlockPriceTextXPath = "//*[@id = 'desktop-3']//*[@data-a-size = 'm']//*[contains(@class, 'offscreen')]";
+    private final Label goodDealsBlockPriceText = new Label(By.xpath("//*[@id = 'desktop-3']//*[@data-a-size = 'm']//*[contains(@class, 'offscreen')]"),
+            "Good Deals Block Price Text");
 
     public MainPage() {
         super(mainFormWrapper);
@@ -34,7 +35,7 @@ public class MainPage extends BaseForm {
     }
 
     public List<String> getGoodDealBlockPriceText() {
-        return WebDriverUtils.getDriver().findElements(By.xpath(goodDealBlockPriceTextXPath))
+        return goodDealsBlockPriceText.getElements()
                 .stream()
                 .map(x -> x.getAttribute("innerHTML"))
                 .collect(Collectors.toList());
@@ -46,11 +47,11 @@ public class MainPage extends BaseForm {
                 .contains("feed-control-disabled");
     }
 
-    public void moveExcitingDealScrollBarToTheRight() {
+    public void moveExcitingDealScrollBarButtonToTheRight() {
         new Actions(WebDriverUtils.getDriver())
-                .scrollToElement(excitingDealsScrollbarTrack.getElement())
+                .scrollToElement(excitingDealsScrollbarButton.getElement())
                 .scrollByAmount(0, 300)
-                .dragAndDropBy(excitingDealsScrollbarTrack.getElement(), 1300, 0)
+                .dragAndDropBy(excitingDealsScrollbarButton.getElement(), 1300, 0)
                 .perform();
     }
 

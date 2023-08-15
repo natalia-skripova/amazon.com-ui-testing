@@ -17,7 +17,7 @@ public class MainPageTest extends BaseTest {
 
     @Test
     public void goodDealBlockPricesTest() {
-        LogUtils.getLogger().info("Checking that prices from Good Deal Block are correct");
+        LogUtils.getLogger().info("--Good Deal Block test. Step 1. Go to the Main page.--");
         MainPage mainPage = new MainPage();
         Assert.assertTrue(mainPage.isPageOpened(), "Main Page didn't open");
 
@@ -33,12 +33,13 @@ public class MainPageTest extends BaseTest {
 
     @Test
     public void excitingDealsScrollbarTest() {
-        LogUtils.getLogger().info("Checking that ScrollBar from Exiting Deals is working correctly");
+        LogUtils.getLogger().info("--Exciting Deals Scrollbar test. Step 1. Go to the Main page.--");
         MainPage mainPage = new MainPage();
         Assert.assertTrue(mainPage.isPageOpened(), "Main Page didn't open");
 
-        Assert.assertTrue(mainPage.isExcitingDealsPreviousSlideArrowDisabled(), "The Scroll Bar is not in the Left position");
-        mainPage.moveExcitingDealScrollBarToTheRight();
-        Assert.assertTrue(mainPage.isExcitingDealsNextSlideArrowDisabled(), "The Scroll Bar is not in the Right position");
+        LogUtils.getLogger().info("--Exciting Deals Scrollbar test. Step 2. Pull Scroll Bar Button from left to the right.--");
+        Assert.assertTrue(mainPage.isExcitingDealsPreviousSlideArrowDisabled(), "The Scroll Bar Button is not in the Left position");
+        mainPage.moveExcitingDealScrollBarButtonToTheRight();
+        Assert.assertTrue(mainPage.isExcitingDealsNextSlideArrowDisabled(), "The Scroll Bar Button is not in the Right position");
     }
 }

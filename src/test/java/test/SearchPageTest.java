@@ -11,8 +11,7 @@ import utility.ParseUtils;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static constant.SearchPageDataConstants.BRAND;
-import static constant.SearchPageDataConstants.SEARCH_WORD;
+import static constant.SearchPageDataConstants.*;
 import static constant.TestDataPathConstants.SEARCH_PAGE_TEST_DATA;
 
 public class SearchPageTest extends BaseTest {

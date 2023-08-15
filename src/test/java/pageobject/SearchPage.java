@@ -23,10 +23,10 @@ public class SearchPage extends BaseForm {
     private final Label itemRate = new Label(By.xpath("//*[@class = 'a-declarative']"), "Item Star Rate");
     private final Wrapper ratePopoverWindow = new Wrapper(By.xpath("//*[contains(@class, 'a-popover')][@role='dialog']"), "Star Popover Window");
     private final SelectElement searchSortSelect = new SelectElement(By.id("s-result-sort-select"), "Search Sort Select");
+    private final Label searchItemTitle = new Label(By.xpath("//*[@class = 'sg-row']//*[contains(@class, 'title')]//a"), "Search Item Title");
+    private final Label searchItemPrice = new Label(By.xpath("//*[@class='a-price']//*[@class='a-price-whole']"), "Search Item Price");
 
-    private final String searchItemTitleXpath = "//*[@class = 'sg-row']//*[contains(@class, 'title')]//a";
-    private final String searchItemPriceXpath = "//*[@class='a-price']//*[@class='a-price-whole']";
-    private final String brandCheckBoxXpathBase = "//*[@id = 'brandsRefinements']";
+    private final String brandCheckBoxXpathBase = "//*[@id = 'brandsRefinements']//*[@aria-label = '%s']//i[contains(@class, 'checkbox')]";
 
     public SearchPage() {
         super(searchPageWrapper);
@@ -42,22 +42,22 @@ public class SearchPage extends BaseForm {
     }
 
     public void selectBrandCheckBox(String brandName) {
-        String brandCheckBoxFullXPath = brandCheckBoxXpathBase + String.format("//*[@aria-label = '%s']//i[contains(@class, 'checkbox')]", brandName);
+        String brandCheckBoxFullXPath = String.format(brandCheckBoxXpathBase, brandName);
         WebDriverUtils.getDriver().findElement(By.xpath(brandCheckBoxFullXPath)).click();
 
     }
 
     public List<String> getItemsTitles() {
-        WaitUtils.waitForElementDisplayed(By.xpath(searchItemTitleXpath));
-        return WebDriverUtils.getDriver().findElements(By.xpath(searchItemTitleXpath))
+        WaitUtils.waitForElementDisplayed(searchItemTitle.getElementLocator());
+        return searchItemTitle.getElements()
                 .stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
     }
 
     public List<Integer> getItemsPrices() {
-        WaitUtils.waitForElementDisplayed(By.xpath(searchItemPriceXpath));
-        return WebDriverUtils.getDriver().findElements(By.xpath(searchItemPriceXpath))
+        WaitUtils.waitForElementDisplayed(searchItemPrice.getElementLocator());
+        return searchItemPrice.getElements()
                 .stream()
                 .map(x -> Integer.parseInt(x.getText().replaceAll(",", "")))
                 .collect(Collectors.toList());
