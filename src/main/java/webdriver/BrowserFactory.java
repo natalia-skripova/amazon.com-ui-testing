@@ -23,7 +23,7 @@ public class BrowserFactory {
 
         switch (browser) {
             case CHROME: {
-                WebDriverManager.chromedriver().browserVersion("115.0.5790.171").setup();
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
                 getOptions().forEach(options::addArguments);
                 LogUtils.getLogger().info("Browser Chrome was chosen");

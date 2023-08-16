@@ -33,9 +33,8 @@ public class BaseElement {
     }
 
     public List<WebElement> getElements() {
-        LogUtils.getLogger().debug("Getting " + elementName + " element");
+        LogUtils.getLogger().debug("Getting " + elementName + " elements");
         WaitUtils.waitForElementDisplayed(uniqueLocator);
         return WebDriverUtils.getDriver().findElements(uniqueLocator);
     }
-
 }
