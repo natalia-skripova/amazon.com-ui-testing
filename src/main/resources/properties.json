@@ -1,7 +1,6 @@
 {
   "browsername": "chrome",
   "browseroptions": [
-    "--headless=new",
     "start-maximized",
     "incognito",
     "--lang=en-en",
