@@ -10,7 +10,7 @@ public class Input extends BaseElement {
     }
 
     public void sendKeysToInput(String data) {
-        LogUtils.getLogger().debug("Send keys: " + data);
+        LogUtils.getLogger().debug(String.format("Send keys '%s' to: '%s'", data, getElementName()));
         getElement().clear();
         getElement().sendKeys(data);
     }

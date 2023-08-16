@@ -15,6 +15,7 @@ public class MainPage extends BaseForm {
 
     private final static Wrapper mainFormWrapper = new Wrapper(By.id("navbar-main"), "Main Form");
 
+    private final Wrapper shortMainFormWrapper = new Wrapper(By.id("navbar-backup-backup"), "Short Main Form Wrapper");
     private final Button excitingDealsPreviousSlideArrow = new Button(By.xpath("//*[@id = 'desktop-1']//*[@aria-label = 'Carousel previous slide']"),
             "Exciting Deals Previous Slide Arrow");
     private final Button excitingDealsNextSlideArrow = new Button(By.xpath("//*[@id = 'desktop-1']//*[@aria-label = 'Carousel next slide']"),
@@ -29,7 +30,7 @@ public class MainPage extends BaseForm {
     }
 
     public void getFullMainPageOpened() {
-        while (!mainFormWrapper.getElement().isDisplayed()) {
+        while (shortMainFormWrapper.getElement().isDisplayed()) {
             BrowserUtils.refreshWebPage();
         }
     }
