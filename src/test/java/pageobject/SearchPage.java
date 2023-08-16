@@ -13,18 +13,17 @@ import java.util.stream.Collectors;
 
 public class SearchPage extends BaseForm {
 
-    private final static Wrapper searchPageWrapper = new Wrapper(By.xpath("//*[@id = 'search']"),
-            "Search Page Header");
+    private final static Wrapper searchPageWrapper = new Wrapper(By.id("search"), "Search Page Header");
 
     private final Label searchQueryText = new Label(By
             .xpath("//*[@data-component-type='s-result-info-bar']//*[contains(@class, 'a-text-bold')]"), "Search Query Text");
     private final Button expandBrandFilterButton = new Button(By.xpath("//*[@id='brandsRefinements']//a[contains(@class, 'expander')]"),
             "Expand Brand Filter Button");
-    private final Label itemRate = new Label(By.xpath("//*[@class = 'a-declarative']"), "Item Star Rate");
     private final Wrapper ratePopoverWindow = new Wrapper(By.xpath("//*[contains(@class, 'a-popover')][@role='dialog']"), "Star Popover Window");
     private final SelectElement searchSortSelect = new SelectElement(By.id("s-result-sort-select"), "Search Sort Select");
     private final Label searchItemTitle = new Label(By.xpath("//*[@class = 'sg-row']//*[contains(@class, 'title')]//a"), "Search Item Title");
     private final Label searchItemPrice = new Label(By.xpath("//*[@class='a-price']//*[@class='a-price-whole']"), "Search Item Price");
+    private final Label searchItemRate = new Label(By.className("a-declarative"), "Item Star Rate");
 
     private final String brandCheckBoxXpathBase = "//*[@id = 'brandsRefinements']//*[@aria-label = '%s']//i[contains(@class, 'checkbox')]";
 
@@ -70,7 +69,7 @@ public class SearchPage extends BaseForm {
 
     public void hoverOverStarPopupWindow() {
         new Actions(WebDriverUtils.getDriver())
-                .moveToElement(itemRate.getElement())
+                .moveToElement(searchItemRate.getElement())
                 .click()
                 .perform();
     }
