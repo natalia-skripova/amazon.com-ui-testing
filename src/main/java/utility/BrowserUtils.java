@@ -1,6 +1,6 @@
 package utility;
 
-import webDriver.WebDriverUtils;
+import webdriver.WebDriverUtils;
 
 public class BrowserUtils {
 

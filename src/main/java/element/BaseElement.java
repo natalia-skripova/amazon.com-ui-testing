@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utility.LogUtils;
 import utility.WaitUtils;
-import webDriver.WebDriverUtils;
+import webdriver.WebDriverUtils;
 
 import java.util.List;
 

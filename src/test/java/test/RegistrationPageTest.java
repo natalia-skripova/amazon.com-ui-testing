@@ -6,7 +6,7 @@ import pageobject.*;
 import utility.BrowserUtils;
 import utility.LogUtils;
 import utility.RandomUtils;
-import webDriver.WebDriverUtils;
+import webdriver.WebDriverUtils;
 
 public class RegistrationPageTest extends BaseTest {
 

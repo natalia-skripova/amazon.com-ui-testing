@@ -1,4 +1,4 @@
-package webDriver;
+package webdriver;
 
 import org.openqa.selenium.WebDriver;
 import utility.LogUtils;

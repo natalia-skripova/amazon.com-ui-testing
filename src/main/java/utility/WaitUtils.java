@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import webDriver.WebDriverUtils;
+import webdriver.WebDriverUtils;
 import java.time.Duration;
 
 import static constant.FilePathConstants.PROPERTIES;

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import utility.WaitUtils;
-import webDriver.WebDriverUtils;
+import webdriver.WebDriverUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -4,7 +4,7 @@ import element.Button;
 import element.Input;
 import element.Wrapper;
 import org.openqa.selenium.By;
-import webDriver.WebDriverUtils;
+import webdriver.WebDriverUtils;
 
 public class RegistrationPage extends BaseForm {
 

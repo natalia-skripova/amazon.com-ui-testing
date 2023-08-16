@@ -6,7 +6,7 @@ import element.Wrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import utility.BrowserUtils;
-import webDriver.WebDriverUtils;
+import webdriver.WebDriverUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;

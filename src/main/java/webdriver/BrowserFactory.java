@@ -1,4 +1,4 @@
-package webDriver;
+package webdriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import model.Browser;

@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeClass;
 import pageobject.MainPage;
 import utility.BrowserUtils;
 import utility.ParseUtils;
-import webDriver.WebDriverUtils;
+import webdriver.WebDriverUtils;
 
 import static constant.FilePathConstants.PROPERTIES;
 import static constant.JsonPropertiesConstants.MAIN_PAGE_URL;
